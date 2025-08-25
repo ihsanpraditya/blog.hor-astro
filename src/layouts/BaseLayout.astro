@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+    <meta name="description" content="My Astro blog about web development and more." />
+    <title>{title}</title>
+	</head>
+	<body>
+    <slot name="navigation" />
+    <slot name="header" />
+    <main>
+      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 grid grid-cols-1 gap-4 lg:grid-cols-[1fr_120px] lg:gap-8">
+        <slot class="h-32" />
+        <slot name="sidebar" class="h-32" />
+      </div>
+    </main>
+    <slot name="footer" />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
